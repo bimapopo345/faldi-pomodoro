@@ -280,10 +280,129 @@
         color: #ffffff !important;
         font-weight: 700 !important;
     }
+    
+    /* Mobile Responsive Styles */
+    @media (max-width: 768px) {
+        body .main-content {
+            margin-left: 0 !important;
+            margin-top: 55px !important;
+            padding: 15px !important;
+        }
+        
+        .sidebar {
+            transform: translateX(-100%) !important;
+            transition: transform 0.3s ease !important;
+        }
+        
+        .sidebar.show {
+            transform: translateX(0) !important;
+        }
+        
+        .mobile-toggle {
+            display: block !important;
+            position: fixed !important;
+            top: 10px !important;
+            left: 10px !important;
+            z-index: 1002 !important;
+            background: #2c3e50 !important;
+            color: white !important;
+            border: none !important;
+            padding: 8px 12px !important;
+            border-radius: 4px !important;
+            font-size: 18px !important;
+        }
+        
+        .date-range {
+            font-size: 1rem !important;
+            padding-left: 10px !important;
+        }
+        
+        .btn-group {
+            flex-direction: column !important;
+            width: 100% !important;
+        }
+        
+        .btn-filter, .btn-primary {
+            width: 100% !important;
+            margin-bottom: 10px !important;
+        }
+        
+        .table-responsive {
+            font-size: 0.85rem !important;
+        }
+        
+        tbody tr td {
+            padding: 10px 8px !important;
+            font-size: 0.85rem !important;
+        }
+        
+        table.dataTable thead th {
+            padding: 12px 8px !important;
+            font-size: 0.8rem !important;
+        }
+        
+        .total-row td {
+            font-size: 1rem !important;
+            padding: 12px 8px !important;
+        }
+        
+        .gross-income td {
+            font-size: 1.1rem !important;
+            padding: 14px 8px !important;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        body .main-content {
+            padding: 10px !important;
+        }
+        
+        .date-range {
+            font-size: 0.9rem !important;
+        }
+        
+        .table-responsive {
+            font-size: 0.75rem !important;
+        }
+        
+        tbody tr td {
+            padding: 8px 6px !important;
+            font-size: 0.75rem !important;
+        }
+        
+        table.dataTable thead th {
+            padding: 10px 6px !important;
+            font-size: 0.7rem !important;
+        }
+        
+        .btn-filter, .btn-primary {
+            padding: 6px 12px !important;
+            font-size: 0.9rem !important;
+        }
+        
+        .total-row td {
+            font-size: 0.9rem !important;
+            padding: 10px 6px !important;
+        }
+        
+        .gross-income td {
+            font-size: 1rem !important;
+            padding: 12px 6px !important;
+        }
+    }
+    
+    /* Desktop styles */
+    @media (min-width: 769px) {
+        .mobile-toggle {
+            display: none !important;
+        }
+    }
 </style>
 
-<div>
-    <a href="{{ route('myshop') }}">My shop</a>
+<div style="margin-top: 20px; margin-bottom: 20px;">
+    <h2 style="color: #ffffff; font-weight: 700; font-size: 1.5rem; margin: 0;">
+        <a href="{{ route('myshop') }}" style="color: #ffffff; text-decoration: none;">My Shop</a>
+    </h2>
 </div>
 
 <div class="mt-3 mb-3">
@@ -304,6 +423,7 @@
     Monday, 1 September 2025 to Sunday, 7 September 2025
 </div>
 
+<div class="table-responsive">
 <table id="summaryTable" class="table table-bordered table-striped nowrap" style="width:100%">
     <thead>
         <tr>
@@ -361,11 +481,13 @@
         </tr>
     </tfoot>
 </table>
+</div>
 
 <div class="note-section mt-5">
     <div class="note-header mb-3">
         Note Service
     </div>
+    <div class="table-responsive">
     <table id="noteTable" class="table table-bordered table-striped nowrap" style="width:100%">
         <thead>
             <tr>
@@ -382,6 +504,7 @@
             </tr>
         </tbody>
     </table>
+    </div>
 </div>
 
 <div class="mt-5 text-center" style="color: #64748b; font-size: 0.85rem;">
@@ -424,6 +547,27 @@
                     previous: "Previous",
                     next: "Next"
                 }
+            }
+        });
+        
+        // Mobile toggle functionality
+        $('.mobile-toggle').on('click', function() {
+            $('.sidebar').toggleClass('show');
+        });
+        
+        // Close sidebar when clicking outside on mobile
+        $(document).on('click', function(e) {
+            if ($(window).width() <= 768) {
+                if (!$(e.target).closest('.sidebar, .mobile-toggle').length) {
+                    $('.sidebar').removeClass('show');
+                }
+            }
+        });
+        
+        // Handle window resize
+        $(window).on('resize', function() {
+            if ($(window).width() > 768) {
+                $('.sidebar').removeClass('show');
             }
         });
     });
