@@ -7,12 +7,35 @@
 <link href="https://cdn.datatables.net/1.13.5/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
 
 <style>
-    .main-content {
+    /* Force remove any gaps */
+    body .main-content {
         background-color: #121F31 !important;
         color: #cbd5e1 !important;
         font-family: Arial, sans-serif;
-        padding: 20px;
-        min-height: 100vh;
+        padding: 20px !important;
+        margin: 0 !important;
+        margin-left: 250px !important;
+        margin-top: 60px !important;
+        min-height: calc(100vh - 60px) !important;
+        position: relative !important;
+        top: 0 !important;
+    }
+    
+    /* Remove any container margins only in main content */
+    .main-content .container, 
+    .main-content .container-fluid {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    /* Ensure sidebar stays intact */
+    .sidebar {
+        position: fixed !important;
+        left: 0 !important;
+        top: 60px !important;
+        width: 250px !important;
+        height: calc(100vh - 60px) !important;
+        z-index: 1000 !important;
     }
     .main-content a {
         color: #3b82f6;
@@ -22,14 +45,64 @@
     .main-content a:hover {
         text-decoration: underline;
     }
+    /* Button Styling */
     .btn-filter {
-        background-color: #f59e0b;
-        border-color: #f59e0b;
-        color: white;
+        background-color: #f59e0b !important;
+        border-color: #f59e0b !important;
+        color: white !important;
+        font-weight: 600 !important;
+        padding: 8px 16px !important;
+        border-radius: 6px !important;
+        box-shadow: 0 2px 4px rgba(245, 158, 11, 0.3) !important;
+        transition: all 0.3s ease !important;
     }
     .btn-filter:hover {
-        background-color: #d97706;
-        border-color: #d97706;
+        background-color: #d97706 !important;
+        border-color: #d97706 !important;
+        color: white !important;
+        transform: translateY(-1px) !important;
+        box-shadow: 0 4px 8px rgba(245, 158, 11, 0.4) !important;
+    }
+    .btn-filter:focus {
+        box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.3) !important;
+    }
+    
+    .btn-primary {
+        background-color: #3b82f6 !important;
+        border-color: #3b82f6 !important;
+        color: white !important;
+        font-weight: 600 !important;
+        padding: 8px 16px !important;
+        border-radius: 6px !important;
+        box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3) !important;
+        transition: all 0.3s ease !important;
+    }
+    .btn-primary:hover {
+        background-color: #2563eb !important;
+        border-color: #2563eb !important;
+        color: white !important;
+        transform: translateY(-1px) !important;
+        box-shadow: 0 4px 8px rgba(59, 130, 246, 0.4) !important;
+    }
+    .btn-primary:focus {
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3) !important;
+    }
+    
+    /* Dropdown Menu */
+    .dropdown-menu {
+        background-color: #1e293b !important;
+        border: 1px solid #475569 !important;
+        border-radius: 6px !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    }
+    .dropdown-item {
+        color: #cbd5e1 !important;
+        padding: 8px 16px !important;
+        transition: all 0.2s ease !important;
+    }
+    .dropdown-item:hover {
+        background-color: #334155 !important;
+        color: white !important;
     }
     .date-range {
         border-left: 4px solid #3b82f6;
@@ -38,46 +111,103 @@
         font-weight: 700;
         color: #cbd5e1;
     }
-    table.dataTable thead th {
-        color: #94a3b8 !important;
-        background-color: #1e293b !important;
+    /* Table Styling */
+    .table {
+        border-radius: 8px !important;
+        overflow: hidden !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+        border: none !important;
     }
+    
+    table.dataTable thead th {
+        color: #f1f5f9 !important;
+        background: linear-gradient(135deg, #1e293b 0%, #334155 100%) !important;
+        border: none !important;
+        padding: 16px 12px !important;
+        font-weight: 700 !important;
+        font-size: 0.9rem !important;
+        letter-spacing: 0.5px !important;
+        text-transform: uppercase !important;
+        border-bottom: 2px solid #3b82f6 !important;
+    }
+    
     table.dataTable {
         background-color: #1e293b !important;
         color: #cbd5e1 !important;
+        border-collapse: separate !important;
+        border-spacing: 0 !important;
+        width: 100% !important;
     }
+    
     table.dataTable tbody tr {
         background-color: #1e293b !important;
+        border: none !important;
+        transition: all 0.2s ease !important;
     }
+    
     table.dataTable tbody tr:nth-child(even) {
         background-color: #334155 !important;
     }
+    
+    table.dataTable tbody tr:hover {
+        background-color: #475569 !important;
+        transform: scale(1.01) !important;
+        box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2) !important;
+    }
+    
     tbody tr td {
-        vertical-align: middle;
+        vertical-align: middle !important;
         color: #cbd5e1 !important;
+        padding: 14px 12px !important;
+        border: none !important;
+        border-bottom: 1px solid rgba(71, 85, 105, 0.3) !important;
+        font-weight: 500 !important;
+    }
+    
+    /* Table borders */
+    .table-bordered {
+        border: 1px solid #475569 !important;
+    }
+    .table-bordered th,
+    .table-bordered td {
+        border: 1px solid #475569 !important;
     }
     /* Total row */
     .total-row {
-        background-color: #164e63 !important;
-        font-weight: 700;
+        background: linear-gradient(135deg, #164e63 0%, #0f766e 100%) !important;
+        font-weight: 700 !important;
         color: #22c55e !important;
-    }
-    .total-row .text-danger {
-        color: #ef4444 !important;
+        box-shadow: 0 2px 8px rgba(34, 197, 94, 0.3) !important;
+        border-top: 2px solid #22c55e !important;
     }
     .total-row td {
         color: #22c55e !important;
+        font-size: 1.1rem !important;
+        padding: 16px 12px !important;
+        font-weight: 700 !important;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
     }
+    .total-row .text-danger {
+        color: #ef4444 !important;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+    }
+    
     /* Gross Income row */
     .gross-income {
-        background-color: #1e40af !important;
-        font-weight: 700;
-    }
-    .gross-income .text-primary {
-        color: #3b82f6 !important;
+        background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%) !important;
+        font-weight: 700 !important;
+        box-shadow: 0 2px 8px rgba(59, 130, 246, 0.4) !important;
+        border-top: 2px solid #3b82f6 !important;
     }
     .gross-income td {
-        color: #3b82f6 !important;
+        color: #ffffff !important;
+        font-size: 1.2rem !important;
+        padding: 18px 12px !important;
+        font-weight: 800 !important;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+    }
+    .gross-income .text-primary {
+        color: #ffffff !important;
     }
     /* Text colors */
     .text-green {

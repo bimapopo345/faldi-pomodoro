@@ -1,11 +1,11 @@
 <style>
     .sidebar {
         width: 250px;
-        height: 100vh;
+        height: calc(100vh - 60px);
         background: linear-gradient(180deg, #2c3e50 0%, #34495e 100%);
         position: fixed;
         left: 0;
-        top: 0;
+        top: 60px;
         z-index: 1000;
         overflow-y: auto;
         box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);

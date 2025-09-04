@@ -1,9 +1,17 @@
 <style>
-    body {
-        margin: 0;
-        padding: 0;
+    html, body {
+        margin: 0 !important;
+        padding: 0 !important;
+        box-sizing: border-box;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         background: #f8f9fa;
+        overflow-x: hidden;
+        height: 100%;
+    }
+    
+    /* Only reset main content area, not sidebar */
+    .main-content * {
+        box-sizing: border-box;
     }
     .admin-header {
         background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
@@ -13,7 +21,11 @@
         align-items: center;
         justify-content: space-between;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        position: relative;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1001;
         overflow: hidden;
     }
     .admin-header::before {
