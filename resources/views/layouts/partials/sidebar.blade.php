@@ -160,7 +160,7 @@
         </div>
     </div>
     <ul class="sidebar-menu">
-        <li class="menu-item"><a href="#" class="menu-link active" onclick="setActive(this)"><span class="menu-icon">🛍️</span><span class="menu-text">My Shop</span></a></li>
+        <li class="menu-item"><a href="{{ route('myshop') }}" class="menu-link active" onclick="setActive(this)"><span class="menu-icon">🛍️</span><span class="menu-text">My Shop</span></a></li>
         <li class="menu-item">
             <button class="menu-link" onclick="toggleSubmenu(this)"><span class="menu-icon">🔧</span><span class="menu-text">Repair</span><span class="menu-arrow">▶</span></button>
             <ul class="submenu">

@@ -214,6 +214,23 @@
             opacity: 1;
         }
     }
+    
+    /* Main content positioning */
+    .main-content {
+        margin-left: 250px; /* Same as sidebar width */
+        margin-top: 60px; /* Same as header height */
+        min-height: calc(100vh - 60px);
+        padding: 0;
+        background: #f8f9fa;
+    }
+    
+    /* Mobile responsive */
+    @media (max-width: 768px) {
+        .main-content {
+            margin-left: 0;
+            margin-top: 55px;
+        }
+    }
 </style>
 <header class="admin-header">
     <div class="header-left">
