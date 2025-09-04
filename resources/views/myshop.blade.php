@@ -10,7 +10,7 @@
     /* Force remove any gaps */
     body .main-content {
         background-color: #121F31 !important;
-        color: #cbd5e1 !important;
+        color: #f8fafc !important;
         font-family: Arial, sans-serif;
         padding: 20px !important;
         margin: 0 !important;
@@ -19,6 +19,7 @@
         min-height: calc(100vh - 60px) !important;
         position: relative !important;
         top: 0 !important;
+        font-weight: 600 !important;
     }
     
     /* Remove any container margins only in main content */
@@ -108,8 +109,10 @@
         border-left: 4px solid #3b82f6;
         padding-left: 15px;
         margin-bottom: 15px;
-        font-weight: 700;
-        color: #cbd5e1;
+        font-weight: 800;
+        color: #ffffff;
+        font-size: 1.1rem;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
     }
     /* Table Styling */
     .table {
@@ -132,36 +135,37 @@
     }
     
     table.dataTable {
-        background-color: #1e293b !important;
-        color: #cbd5e1 !important;
+        background-color: #ffffff !important;
+        color: #1f2937 !important;
         border-collapse: separate !important;
         border-spacing: 0 !important;
         width: 100% !important;
     }
     
     table.dataTable tbody tr {
-        background-color: #1e293b !important;
+        background-color: #ffffff !important;
         border: none !important;
         transition: all 0.2s ease !important;
     }
     
     table.dataTable tbody tr:nth-child(even) {
-        background-color: #334155 !important;
+        background-color: #f8fafc !important;
     }
     
     table.dataTable tbody tr:hover {
-        background-color: #475569 !important;
+        background-color: #e2e8f0 !important;
         transform: scale(1.01) !important;
         box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2) !important;
     }
     
     tbody tr td {
         vertical-align: middle !important;
-        color: #cbd5e1 !important;
+        color: #1f2937 !important;
         padding: 14px 12px !important;
         border: none !important;
-        border-bottom: 1px solid rgba(71, 85, 105, 0.3) !important;
-        font-weight: 500 !important;
+        border-bottom: 1px solid rgba(203, 213, 225, 0.5) !important;
+        font-weight: 600 !important;
+        font-size: 0.95rem !important;
     }
     
     /* Table borders */
@@ -211,10 +215,22 @@
     }
     /* Text colors */
     .text-green {
-        color: #22c55e !important;
+        color: #16a34a !important;
+        font-weight: 700 !important;
     }
     .text-red {
-        color: #ef4444 !important;
+        color: #dc2626 !important;
+        font-weight: 700 !important;
+    }
+    .text-danger {
+        color: #dc2626 !important;
+        font-weight: 700 !important;
+    }
+    .text-end {
+        text-align: right !important;
+    }
+    .text-center {
+        text-align: center !important;
     }
     /* Note header */
     .note-header {
@@ -229,31 +245,40 @@
     .dataTables_wrapper .dataTables_filter,
     .dataTables_wrapper .dataTables_info,
     .dataTables_wrapper .dataTables_paginate {
-        color: #cbd5e1 !important;
+        color: #f8fafc !important;
+        font-weight: 600 !important;
     }
     .dataTables_wrapper .dataTables_filter input {
         background-color: #334155 !important;
         border: 1px solid #475569 !important;
-        color: #cbd5e1 !important;
+        color: #f8fafc !important;
+        font-weight: 600 !important;
+        padding: 6px 12px !important;
     }
     .dataTables_wrapper .dataTables_length select {
         background-color: #334155 !important;
         border: 1px solid #475569 !important;
-        color: #cbd5e1 !important;
+        color: #f8fafc !important;
+        font-weight: 600 !important;
+        padding: 4px 8px !important;
     }
     .page-link {
         background-color: #334155 !important;
         border-color: #475569 !important;
-        color: #cbd5e1 !important;
+        color: #f8fafc !important;
+        font-weight: 600 !important;
     }
     .page-link:hover {
         background-color: #475569 !important;
         border-color: #64748b !important;
-        color: #f1f5f9 !important;
+        color: #ffffff !important;
+        font-weight: 700 !important;
     }
     .page-item.active .page-link {
         background-color: #3b82f6 !important;
         border-color: #3b82f6 !important;
+        color: #ffffff !important;
+        font-weight: 700 !important;
     }
 </style>
 
