@@ -15,7 +15,7 @@
         padding: 20px !important;
         margin: 0 !important;
         margin-left: 250px !important;
-        margin-top: 60px !important;
+        margin-top: 30px !important;
         min-height: calc(100vh - 60px) !important;
         position: relative !important;
         top: 0 !important;
